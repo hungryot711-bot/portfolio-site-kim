@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kim Seonggi Portfolio - Slide Deck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --bg: #0c0e12;
+      --panel: #161920;
+      --panel-border: rgba(255, 255, 255, 0.1);
+      --accent: #ff0033;
+      --accent-soft: rgba(255, 0, 51, 0.15);
+      --text: #ffffff;
+      --text-sub: #9ca3af;
+      --font: 'Plus Jakarta Sans', 'Noto Sans JP', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+    .slide {
+      width: 100%;
+      max-width: 1100px;
+      min-height: 620px;
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: 20px;
+      padding: 48px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    }
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    .slide-num {
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .slide-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .slide-tag {
+      font-size: 0.85rem;
+      color: var(--text-sub);
+    }
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      gap: 20px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(255,0,51,0.3);
+      color: #ff4d6d;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      width: fit-content;
+    }
+    .title-main {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+    }
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .stat-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+    .stat-val { font-size: 1.8rem; font-weight: 800; color: #fff; }
+    .stat-lbl { font-size: 0.75rem; color: var(--text-sub); margin-top: 4px; }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      height: 100%;
+    }
+    .card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 14px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .card h3 { font-size: 1.15rem; font-weight: 700; color: #fff; }
+    .card p { font-size: 0.88rem; color: var(--text-sub); line-height: 1.6; }
+    .card-highlight {
+      border-left: 3px solid var(--accent);
+    }
+    .video-wrap {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #000;
+    }
+    .video-wrap iframe {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%; border: none;
+    }
+    .slide-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 14px;
+      margin-top: 20px;
+      font-size: 0.8rem;
+      color: var(--text-sub);
+    }
+    @media (max-width: 768px) {
+      .slide { min-height: auto; padding: 24px; }
+      .grid-2, .stat-row { grid-template-columns: 1fr; }
+      .title-main { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Slide 1: Cover -->
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-num">Portfolio / 01</span>
+      <span class="slide-tag">金 星起 (Kim Seonggi)</span>
+    </div>
+    <div class="hero-content">
+      <div class="badge"><i data-lucide="video" size="14"></i> YouTube登録者 13.9万人</div>
+      <h1 class="title-main">
+        東京のトレンドを13万人に届ける<br>
+        クリエイター ＆ ビデオグラファー
+      </h1>
+      <p style="color: var(--text-sub); font-size: 1.1rem;">
+        〜企画・撮影・編集からインバウンド集客まで完結するオールラウンダー〜
+      </p>
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="stat-val">13.9万人</div>
+          <div class="stat-lbl">YouTube登録者数</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val">720本+</div>
+          <div class="stat-lbl">累計制作本数</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val">6年間</div>
+          <div class="stat-lbl">単独企画・制作・運用</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val">日韓</div>
+          <div class="stat-lbl">ネイティブ / 日本語N1</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>運営メディア: YouTube「도사남 DoSaNam」</span>
+      <span>lunasea0000@gmail.com</span>
+    </div>
+  </div>
+
+  <!-- Slide 2: Core Competencies -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="slide-num">Capabilities / 02</div>
+        <h2 class="slide-title">コアスキル (Core Competencies)</h2>
+      </div>
+      <span class="slide-tag">企画からマーケティングまで一貫対応</span>
+    </div>
+    <div class="grid-2">
+      <div class="card card-highlight">
+        <h3>インバウンド特化の企画力</h3>
+        <p>訪日韓国人観光客のニーズを的確に捉え、日本のホテル、レストラン、ローカルカルチャーの魅力を最大化するコンテンツ企画。デカ盛り弁当やコスパの良い炉端焼きなど、数字（再生数）を獲れる切り口を見つけるリサーチ力があります。</p>
+      </div>
+      <div class="card card-highlight">
+        <h3>高度な撮影技術</h3>
+        <p>バイク撮影特化、通常のVlogとは一線を画すダイナミックで没入感のある映像表現が可能です。</p>
+      </div>
+      <div class="card card-highlight">
+        <h3>プロフェッショナルな編集スキル</h3>
+        <p>Final Cut Proを活用したスピーディーかつ洗練されたカット割り、カラーグレーディング、そして視聴者を飽きさせないテンポ感の調整を得意としています。</p>
+      </div>
+      <div class="card card-highlight">
+        <h3>圧倒的な機動力とローカル開拓力</h3>
+        <p>バイクを活用したフットワークの軽さで、都内（練馬区周辺から都心まで）の隠れた名店やユニークな自販機、こだわりのラーメン店などを迅速にロケーション・ハンティングする能力があります。</p>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>単なる作業者ではなく、集客とブランディングを両立する実行力</span>
+      <span>080-8836-2497</span>
+    </div>
+  </div>
+
+  <!-- Slide 3: Featured Works -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="slide-num">Works / 03</div>
+        <h2 class="slide-title">代表的な実績・ポートフォリオ</h2>
+      </div>
+      <span class="slide-tag">演出力・企画力・情報伝達力</span>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/Wncx00iSSK4" title="Intro" allowfullscreen></iframe>
+        </div>
+        <h3 style="margin-top: 10px;">映画のようなシネマティック・イントロ 🎬</h3>
+        <p><strong>実績:</strong> 最初の5秒での視聴者離脱を最小限に抑え、動画全体の視聴維持率向上に大きく貢献。<br>
+        視聴者の心を瞬時に掴む、映画予告編のようなオープニング映像。ブランドの価値を一段階引き上げる高い演出力です。</p>
+      </div>
+      <div class="card">
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/ccy4gDOjRAI" title="Bento" allowfullscreen></iframe>
+        </div>
+        <h3 style="margin-top: 10px;">浅草名物 1kg デカ盛り弁当</h3>
+        <p><strong>実績: 再生回数 33万回以上</strong><br>
+        好奇心を刺激する巨大グルメをローカル市場で発掘。サムネイルCTRを最大化する見せ方で大きな反響を獲得。</p>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>※ YouTube「도사남 DoSaNam」にて累計720本以上公開中</span>
+      <span>YouTube @Do_Sa_Nam</span>
+    </div>
+  </div>
+
+  <!-- Slide 4: Contribution & Profile -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="slide-num">Value & Career / 04</div>
+        <h2 class="slide-title">企業への貢献ポイント ＆ バックボーン</h2>
+      </div>
+      <span class="slide-tag">ビジネス実務とマーケティングの融合</span>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="color: var(--accent);">企業への貢献ポイント</h3>
+        <p style="margin-bottom: 8px;"><strong>・インバウンドマーケティング企業向け:</strong> 韓国人観光客向けの即戦力として、現地のトレンドと韓国側のニーズの架け橋となる施策を推進。</p>
+        <p style="margin-bottom: 8px;"><strong>・映像制作会社向け:</strong> 企画・特殊撮影・Final Cut Pro編集までワンストップで対応可能なディレクターとして参画。</p>
+        <p><strong>・飲食/観光事業向け:</strong> 独自のリサーチデータを活かし、自社ブランドのオウンドメディアをグロース。</p>
+      </div>
+      <div class="card">
+        <h3>略歴 ＆ ビジネス経験</h3>
+        <p style="margin-bottom: 8px;"><strong>2020.01〜現在: YouTube運営「DOSANAM」</strong><br>登録者13.9万人規模へ単独成長。企画・撮影・編集・データ分析を完遂。</p>
+        <p style="margin-bottom: 8px;"><strong>2015.10〜2025.12: 株式会社WJ商事（リーダー）</strong><br>日韓越境EC事業にてNAVERブログ、SNS、YouTubeマーケティング全般を担当。</p>
+        <p><strong>言語・資格:</strong> 韓国語（母国語） / 日本語能力試験N1 / Excel2級 / 簿記3級</p>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>金 星起 (Kim Seonggi)</span>
+      <span>lunasea0000@gmail.com</span>
+    </div>
+  </div>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>

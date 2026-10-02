@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Samples</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans JP", sans-serif;
+      background-color: #0d1117;
+      color: #e6edf3;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 520px;
+    }
+
+    header {
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+    }
+
+    p.lead {
+      font-size: 0.9rem;
+      color: #8b949e;
+    }
+
+    .list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .item {
+      display: block;
+      text-decoration: none;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 16px 18px;
+      transition: all 0.15s ease;
+    }
+
+    .item:hover {
+      background: #1f242c;
+      border-color: #8b949e;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .item-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #58a6ff;
+    }
+
+    .item:hover .item-title {
+      text-decoration: underline;
+    }
+
+    .item-filename {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.8rem;
+      color: #8b949e;
+    }
+
+    .item-note {
+      font-size: 0.82rem;
+      color: #8b949e;
+      line-height: 1.4;
+    }
+
+    .highlight-note {
+      color: #3fb950;
+      font-weight: 500;
+    }
+
+    footer {
+      margin-top: 32px;
+      font-size: 0.8rem;
+      color: #6e7681;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Portfolio Samples</h1>
+      <p class="lead">ポートフォリオのサンプル一覧です。</p>
+    </header>
+
+    <div class="list">
+      <!-- サンプル 1 -->
+      <a href="portfoloo.html" class="item">
+        <div class="item-header">
+          <span class="item-title">Sample 01</span>
+          <span class="item-filename">portfolioo.html</span>
+        </div>
+        <p class="item-note highlight-note">
+          ※ 画面右上のセレクターから全5色のカラーバリエーションを確認できます。
+        </p>
+      </a>
+
+      <!-- サンプル 2 -->
+      <a href="portfolio2.html" class="item">
+        <div class="item-header">
+          <span class="item-title">Sample 02</span>
+          <span class="item-filename">portfolio2.html</span>
+        </div>
+        <p class="item-note">デザインパターン 2</p>
+      </a>
+
+      <!-- サンプル 3 -->
+      <a href="portfolio3.html" class="item">
+        <div class="item-header">
+          <span class="item-title">Sample 03</span>
+          <span class="item-filename">portfolio3.html</span>
+        </div>
+        <p class="item-note">デザインパターン 3</p>
+      </a>
+    </div>
+
+    <footer>
+      Kim Seonggi Portfolio Preview
+    </footer>
+  </div>
+
+</body>
+</html>

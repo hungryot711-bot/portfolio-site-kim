@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kim Sungki | Portfolio</title>
+  <!-- Google Fonts: Inter & Noto Sans JP -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text-main: #111111;
+      --text-sub: #4b5563;
+      --text-muted: #888888;
+      --border: #e5e5e5;
+      --card-bg: #fafafa;
+      --card-hover: #f4f4f4;
+      --badge-bg: #f0f0f0;
+      --font-family: 'Inter', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-family);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      padding: 60px 20px 100px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+
+    a:hover {
+      opacity: 0.7;
+    }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    /* Profile / Header (Notion Style) */
+    .header-profile {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+
+    .avatar-wrapper {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      background-color: #ffffff;
+      border: 1px solid var(--border);
+    }
+
+    .avatar-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .name-row {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .name-en {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+    }
+
+    .name-ja {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .job-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    .job-desc {
+      font-size: 0.95rem;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
+
+    /* Contact Links */
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px;
+      margin-top: 6px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--text-sub);
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .svg-icon {
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      vertical-align: middle;
+      fill: currentColor;
+    }
+
+    /* Key Numbers Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 60px;
+    }
+
+    @media (max-width: 640px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 16px;
+      text-align: center;
+    }
+
+    .stat-val {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+    }
+
+    .stat-lbl {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
+    /* Section Component */
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Story Card (Japan Tour Highlight) */
+    .story-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+      margin-bottom: 30px;
+    }
+
+    .story-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .story-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: #111;
+      color: #fff;
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+
+    .story-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    /* Story Photo Gallery (Responsive) */
+    .story-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    @media (max-width: 640px) {
+      .story-gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .gallery-img-wrapper {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #eef0f2;
+      border: 1px solid var(--border);
+    }
+
+    @media (max-width: 640px) {
+      .gallery-img-wrapper {
+        height: 230px;
+      }
+    }
+
+    .gallery-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.25s ease;
+    }
+
+    .gallery-img-wrapper:hover img {
+      transform: scale(1.03);
+    }
+
+    .story-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--border);
+    }
+
+    @media (max-width: 680px) {
+      .story-pillars {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .pillar-item h4 {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pillar-item p {
+      font-size: 0.82rem;
+      color: var(--text-sub);
+      line-height: 1.55;
+    }
+
+    /* Media List Cards (with rounded thumbnail) */
+    .media-card-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .media-card-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+      display: flex;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 600px) {
+      .media-card-item {
+        flex-direction: column;
+      }
+    }
+
+    .thumb-rounded {
+      width: 130px;
+      min-width: 130px;
+      height: 110px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #f0f0f0;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      position: relative;
+    }
+
+    .thumb-rounded img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .thumb-rounded i {
+      opacity: 0.4;
+    }
+
+    @media (max-width: 600px) {
+      .thumb-rounded {
+        width: 100%;
+        min-width: 100%;
+        height: 140px;
+      }
+    }
+
+    .card-text-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .card-heading {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+
+    .card-description {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+      line-height: 1.65;
+    }
+
+    /* Featured Works */
+    .works-list {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .work-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--bg);
+    }
+
+    .video-box {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background: #000;
+    }
+
+    .video-box iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .work-details {
+      padding: 22px;
+    }
+
+    .work-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: var(--badge-bg);
+      padding: 3px 8px;
+      border-radius: 4px;
+      color: var(--text-sub);
+      margin-bottom: 8px;
+    }
+
+    .work-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .work-result {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .work-desc {
+      font-size: 0.9rem;
+      color: var(--text-sub);
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    .sample-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .sample-btn {
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 4px 10px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text-main);
+    }
+
+    .sample-btn:hover {
+      background: var(--card-hover);
+    }
+
+    .yt-link-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-main);
+      text-decoration: underline;
+    }
+
+    /* Career Minimal */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .timeline-item {
+      padding-left: 14px;
+      border-left: 2px solid var(--border);
+    }
+
+    .timeline-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .timeline-role {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .timeline-desc {
+      font-size: 0.85rem;
+      color: var(--text-sub);
+      margin-top: 4px;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 80px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Profile Header -->
+    <header class="header-profile">
+      <!-- 丸い写真・背景白・左上配置 -->
+      <div class="avatar-wrapper">
+        <img src="profile.png" alt="Kim Sungki" onerror="this.src='profile.jpg'">
+      </div>
+
+      <div class="profile-info">
+        <div class="name-row">
+          <h1 class="name-en">Kim Sungki</h1>
+          <span class="name-ja">金 星起（キム・ソンギ）</span>
+        </div>
+        <div class="job-title">
+          東京のリアルな魅力を発信するクリエイター ＆ ビデオグラファー<br>
+          <span style="font-weight: 400; color: var(--text-sub); font-size: 0.92rem;">
+            企画・ロケハン・撮影・編集からインバウンド集客までワンストップで対応
+          </span>
+        </div>
+        <p class="job-desc">
+          希望職種: コンテンツディレクター / 映像クリエイター / インバウンドマーケティング担当<br>
+          運営メディア: YouTube「도사남 DoSaNam」（登録者 約13.9万人）
+        </p>
+
+        <!-- Contact & SNS Links (インラインSVG) -->
+        <div class="contact-bar">
+          <div class="contact-item">
+            <!-- YouTube公式ベクターアイコン -->
+            <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+            <a href="https://www.youtube.com/@Do_Sa_Nam" target="_blank">@Do_Sa_Nam</a>
+          </div>
+          <div class="contact-item">
+            <!-- Instagram公式ベクターアイコン -->
+            <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            <a href="https://www.instagram.com/dosanam001" target="_blank">@dosanam001</a>
+          </div>
+          <div class="contact-item">
+            <i data-lucide="mail" size="15"></i>
+            <a href="mailto:lunasea0000@gmail.com">lunasea0000@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <i data-lucide="phone" size="15"></i>
+            <span>080-8836-2497</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Key Metrics (Numbers) -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-val">13.9万人</div>
+        <div class="stat-lbl">YouTubeチャンネル登録者</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">720本+</div>
+        <div class="stat-lbl">累計制作・公開本数</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">6年間</div>
+        <div class="stat-lbl">全工程を単独で継続運用</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">No.1</div>
+        <div class="stat-lbl">韓国向けインバウンドチャンネル</div>
+      </div>
+    </div>
+
+    <!-- 0. パーソナルストーリー / 実行力の原点 -->
+    <section class="section">
+      <div class="story-card">
+        <div class="story-header">
+          <div>
+            <span class="story-badge">Background & Story</span>
+            <h3 class="story-title" style="margin-top: 6px;">2014年 75日間 13,543km バイク日本一周完走</h3>
+          </div>
+        </div>
+        <p style="font-size: 0.9rem; color: var(--text-sub); line-height: 1.65;">
+          現在のYouTube活動のベースにあるのは、この時の体験です。北海道から沖縄まで自分の足とバイクで走り、日本のローカルの魅力や人の温かさに直接触れてきました。長期間の単独走行で培った「決めたことを最後までやり抜く行動力」と「トラブルへの即応力」は、今の動画制作やチャンネル運営にもそのまま活きています。
+        </p>
+
+        <!-- 日本一周 写真ギャラリー（レスポンシブ） -->
+        <div class="story-gallery">
+          <div class="gallery-img-wrapper">
+            <img src="photo1.jpg" alt="日本一周のバイク">
+          </div>
+          <div class="gallery-img-wrapper">
+            <img src="photo2.jpg" alt="北海道での記念写真">
+          </div>
+          <div class="gallery-img-wrapper">
+            <img src="photo3.png" alt="日本全国の訪問マップ">
+          </div>
+        </div>
+
+        <div class="story-pillars">
+          <div class="pillar-item">
+            <h4><i data-lucide="shield-check" size="14"></i> 実行力と現場での対応力</h4>
+            <p>13,500km以上の道のりを一人で完走。悪天候や車両トラブルにもその場で冷静に対処し、計画をやり遂げました。</p>
+          </div>
+          <div class="pillar-item">
+            <h4><i data-lucide="compass" size="14"></i> 日本のローカルへの理解</h4>
+            <p>定番の観光地だけでなく、各地の郷土料理や人々の暮らしに直接触れ、生きた日本の魅力を肌で学びました。</p>
+          </div>
+          <div class="pillar-item">
+            <h4><i data-lucide="route" size="14"></i> 継続力とストーリー設計</h4>
+            <p>75日間にわたる長期の旅をスケジュール通りに管理しながら、日々の出来事を一つのストーリーとして記録し続けました。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1. 強み・対応スキル (Core Skills) -->
+    <section class="section">
+      <h2 class="section-title">
+        <i data-lucide="check-square" size="18"></i> 強み・対応スキル (Core Skills)
+      </h2>
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px;">
+        動画の編集作業にとどまらず、リサーチ、企画、撮影、そして公開後の数字分析までをすべて一人で行っています。
+      </p>
+
+      <div class="media-card-list">
+        <!-- Skill 1 -->
+        <div class="media-card-item">
+          <div class="thumb-rounded">
+            <img src="skills-01.jpg" alt="Planning" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <i data-lucide="compass" size="32" style="display: none;"></i>
+          </div>
+          <div class="card-text-content">
+            <div class="card-heading">インバウンド特化の企画・リサーチ力</div>
+            <div class="card-description">
+              「訪日韓国人が本当に求めている情報は何か」を常に意識し、ホテルや飲食店、街のディープな魅力を掘り起こしています。デカ盛り弁当やコスパの良い居酒屋など、再生数に直結する切り口をゼロから見つけ出します。
+            </div>
+          </div>
+        </div>
+
+        <!-- Skill 2 -->
+        <div class="media-card-item">
+          <div class="thumb-rounded">
+            <img src="skills-02.jpg" alt="Cinematography" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <i data-lucide="camera" size="32" style="display: none;"></i>
+          </div>
+          <div class="card-text-content">
+            <div class="card-heading">没入感を生む撮影技術</div>
+            <div class="card-description">
+              バイクでの走行シーンをはじめ、街の空気感やお店の活気がダイレクトに伝わるカメラワークにこだわっています。一般的なVlogにはない、臨場感とテンポのある映像作りを重視しています。
+            </div>
+          </div>
+        </div>
+
+        <!-- Skill 3 -->
+        <div class="media-card-item">
+          <div class="thumb-rounded">
+            <img src="skills-03.jpg" alt="Editing" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <i data-lucide="sliders" size="32" style="display: none;"></i>
+          </div>
+          <div class="card-text-content">
+            <div class="card-heading">Final Cut Proによる編集・カラーグレーディング</div>
+            <div class="card-description">
+              見やすさとテンポ感を重視したカッティング、映画のようなトーンを作るカラーグレーディング、そして視聴者の集中が途切れないBGM・効果音の選定をスピーディーに行います。
+            </div>
+          </div>
+        </div>
+
+        <!-- Skill 4 -->
+        <div class="media-card-item">
+          <div class="thumb-rounded">
+            <img src="skills-04.jpg" alt="Mobility" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <i data-lucide="bike" size="32" style="display: none;"></i>
+          </div>
+          <div class="card-text-content">
+            <div class="card-heading">機動力とローカル開拓力</div>
+            <div class="card-description">
+              バイクの機動力を活かして、都内近郊から中心部まで自ら足を運んでロケハンを実施。ネットやガイドブックには載っていない隠れた名店や、ユニークな自販機、こだわりのラーメン店などを自分の足で見つけ出しています。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. 代表作・制作実績 (Featured Works) -->
+    <section class="section">
+      <h2 class="section-title">
+        <i data-lucide="film" size="18"></i> 代表作・制作実績 (Featured Works)
+      </h2>
+
+      <div class="works-list">
+        <!-- Work 1: Cinematic Intro -->
+        <div class="work-card">
+          <div class="video-box">
+            <iframe src="https://www.youtube.com/embed/Wncx00iSSK4?start=0" title="Cinematic Intro" allowfullscreen></iframe>
+          </div>
+          <div class="work-details">
+            <span class="work-badge">演出・視聴維持</span>
+            <h3 class="work-title">映画のようなシネマティック・イントロ 🎬</h3>
+            <div class="work-result">
+              <i data-lucide="zap" size="15"></i> 実績: 冒頭5秒での離脱を防ぎ、動画全体の視聴維持率を大きく改善
+            </div>
+            <p class="work-desc">
+              映画の予告編のようにダイナミックなオープニングで、再生開始と同時に視聴者を引き込む構成にしています。テンポの良いカット割りとカラーグレーディングによって、紹介するスポットやブランドの魅力をより引き立てる映像を作っています。
+            </p>
+
+            <!-- その他オープニング作例 -->
+            <div class="sample-links">
+              <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 500;">その他オープニング作例:</span>
+              <a href="https://youtu.be/Wncx00iSSK4?t=0s" target="_blank" class="sample-btn">作例 #1</a>
+              <a href="https://youtu.be/qR4NgcJheTs?t=0s" target="_blank" class="sample-btn">作例 #2</a>
+              <a href="https://youtu.be/E6P8Dx3XgCM?t=0s" target="_blank" class="sample-btn">作例 #3</a>
+              <a href="https://youtu.be/xi91Xo4MTDo?t=0s" target="_blank" class="sample-btn">作例 #4</a>
+              <a href="https://youtu.be/Eahj8rMRbgo?t=0s" target="_blank" class="sample-btn">作例 #5</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Work 2: Bento -->
+        <div class="work-card">
+          <div class="video-box">
+            <iframe src="https://www.youtube.com/embed/ccy4gDOjRAI?start=0" title="Asakusa Bento" allowfullscreen></iframe>
+          </div>
+          <div class="work-details">
+            <span class="work-badge">企画・バイラル</span>
+            <h3 class="work-title">浅草名物 1kg デカ盛り弁当</h3>
+            <div class="work-result">
+              <i data-lucide="trending-up" size="15"></i> 実績: 再生回数 33万回以上
+            </div>
+            <p class="work-desc">
+              「1kgの巨大弁当」というわかりやすいインパクトを前面に出し、クリックしたくなるサムネイルとタイトル設計で大きな反響を得た動画です。
+            </p>
+            <a href="https://youtu.be/ccy4gDOjRAI?t=0s" target="_blank" class="yt-link-row">
+              <i data-lucide="external-link" size="14"></i> YouTubeで再生する
+            </a>
+          </div>
+        </div>
+
+        <!-- Work 3: Izakaya -->
+        <div class="work-card">
+          <div class="video-box">
+            <iframe src="https://www.youtube.com/embed/hDNBxc8uB_A?start=0" title="Cost-effective Izakaya" allowfullscreen></iframe>
+          </div>
+          <div class="work-details">
+            <span class="work-badge">情報構成・店舗集客</span>
+            <h3 class="work-title">200円〜 コスパ最強の居酒屋＆ローカルグルメ</h3>
+            <div class="work-result">
+              <i data-lucide="map-pin" size="15"></i> 実績: 高い視聴維持率と、実際の店舗訪問につながる反響を獲得
+            </div>
+            <p class="work-desc">
+              深夜から早朝まで使えるファミレスや、下町の良心的な大衆食堂など、旅行者が「今夜すぐ行ける」実用的な情報をわかりやすくまとめました。動画を見て実際に足を運んでくれる視聴者を多数生み出しています。
+            </p>
+            <a href="https://youtu.be/hDNBxc8uB_A?t=0s" target="_blank" class="yt-link-row">
+              <i data-lucide="external-link" size="14"></i> YouTubeで再生する
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 分析・運用プロセス (Data & Optimization) -->
+    <section class="section">
+      <h2 class="section-title">
+        <i data-lucide="bar-chart-2" size="18"></i> 分析・運用プロセス (Data & Optimization)
+      </h2>
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px;">
+        動画を投稿して終わりにせず、YouTubeアナリティクスで反応を見ながら次の企画へ反映しています。
+      </p>
+
+      <div class="media-card-list">
+        <div class="media-card-item">
+          <div class="thumb-rounded">
+            <img src="data-01.jpg" alt="Audience Analysis" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <i data-lucide="users" size="32" style="display: none;"></i>
+          </div>
+          <div class="card-text-content">
+            <div class="card-heading">ユーザー層・ニーズの把握</div>
+            <div class="card-description">
+              約14万人の登録者の年齢層や視聴地域、流入元のデータを日々確認。「いま韓国の視聴者が日本の何に興味を持っているか」を掴み、動画のテーマ作りに役立てています。
+            </div>
+          </div>
+        </div>
+
+        <div class="media-card-item">
+          <div class="thumb-rounded">
+            <img src="data-02.jpg" alt="Algorithm Optimization" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <i data-lucide="line-chart" size="32" style="display: none;"></i>
+          </div>
+          <div class="card-text-content">
+            <div class="card-heading">サムネイルと導入の改善</div>
+            <div class="card-description">
+              冒頭5秒で離脱されない工夫や、クリック率（CTR）を意識したサムネイルとタイトルの比較・調整を繰り返し、最後まで見てもらえる動画作りを心がけています。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 貢献できる領域 (How I Can Contribute) -->
+    <section class="section">
+      <h2 class="section-title">
+        <i data-lucide="briefcase" size="18"></i> 貢献できる領域 (How I Can Contribute)
+      </h2>
+
+      <div class="media-card-list">
+        <div class="media-card-item">
+          <div class="thumb-rounded">
+            <img src="contrib-01.jpg" alt="Inbound Promotion" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <i data-lucide="globe" size="32" style="display: none;"></i>
+          </div>
+          <div class="card-text-content">
+            <div class="card-heading">インバウンドプロモーション / 広告代理店</div>
+            <div class="card-description">
+              韓国人旅行者のリアルな目線で、ホテルや飲食店、自治体の魅力を発信します。日韓両方の文化や好みを理解しているため、韓国の観光客にしっかり届くプロモーションを形にできます。
+            </div>
+          </div>
+        </div>
+
+        <div class="media-card-item">
+          <div class="thumb-rounded">
+            <img src="contrib-02.jpg" alt="Video Production" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <i data-lucide="video" size="32" style="display: none;"></i>
+          </div>
+          <div class="card-text-content">
+            <div class="card-heading">映像制作会社 / クリエイティブチーム</div>
+            <div class="card-description">
+              企画からロケハン、撮影、Final Cut Proでの編集まで一人で一通りこなせます。プロジェクトの規模に合わせて、ディレクターとしても現場の撮影・編集担当としても柔軟に動けます。
+            </div>
+          </div>
+        </div>
+
+        <div class="media-card-item">
+          <div class="thumb-rounded">
+            <img src="contrib-03.jpg" alt="Owned Media" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <i data-lucide="utensils" size="32" style="display: none;"></i>
+          </div>
+          <div class="card-text-content">
+            <div class="card-heading">飲食・観光・オウンドメディア運営企業</div>
+            <div class="card-description">
+              これまで現場を取材して培ったリサーチ力を活かし、自社ブランドやお店の魅力を海外へ伝えるSNS・YouTubeアカウントの立ち上げや運用の力になれます。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 職歴・バックボーン (Career & Background) -->
+    <section class="section">
+      <h2 class="section-title">
+        <i data-lucide="clock" size="18"></i> 職歴・バックボーン (Career & Background)
+      </h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-meta">2020年1月 〜 現在</div>
+          <div class="timeline-role">YouTube「도사남 DoSaNam」運営（個人事業主）</div>
+          <div class="timeline-desc">
+            訪日韓国人向けチャンネルを開設。6年間で登録者約13.9万人、720本以上の動画を一人で企画・撮影・編集・運用。
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-meta">2015年10月 〜 2025年12月</div>
+          <div class="timeline-role">株式会社 WJ商事（リーダー）</div>
+          <div class="timeline-desc">
+            日韓越境EC事業にて、NAVERブログ、SNS、YouTubeを活用した日本商品のマーケティング・プロモーションを担当。
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-meta">2014年11月 〜 2015年6月</div>
+          <div class="timeline-role">株式会社 YJトランス（一般社員）</div>
+          <div class="timeline-desc">
+            輸出入貿易業。羽田空港での貨物搬入手続きおよび管理業務を担当。
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-meta">2014年</div>
+          <div class="timeline-role">バイク日本一周完走（75日間 / 13,543km）</div>
+          <div class="timeline-desc">
+            単独での日本一周を通じて、全国の地域性や文化を体得。粘り強くやり切る行動力の原点となっています。
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-meta">言語・資格</div>
+          <div class="timeline-role">スキルセット</div>
+          <div class="timeline-desc">
+            韓国語（母国語） / 日本語（ビジネスレベル・日本語能力試験N1） / 普通自動車第1種運転免許 / Excel 2級 / 簿記 3級
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 Kim Sungki. All Rights Reserved.</p>
+    </footer>
+
+  </div>
+
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>
